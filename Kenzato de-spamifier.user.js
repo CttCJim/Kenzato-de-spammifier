@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kenzato de-spammifier
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      0.2
 // @description  try to take over the world!
 // @author       CttCJim
 // @match        https://kenzato.uk/*
@@ -31,14 +31,15 @@
 
         return data;
     }
-    /*const blacklist = [
-        "MatureRavenMilf",
-        "Elf Butt Seeker",
-        "Hooly_mooly"
+    /*nst blacklist = [
+        'morrowind4ever',
+        'raider123',
+        'hooly_mooly',
+        'wersoreri'
     ];*/
     const blacklist = JSON.parse(await getgit('CttCJim','Kenzato-de-spammifier','blacklist.json'));
-    console.log(blacklist);
     for(var i=0;i<blacklist.length;i++) {
-        $("a:contains('"+blacklist[i]+"')").closest(".c8").remove();
+        $('a[href$="'+blacklist[i]+'"]').closest(".c8").remove(); //search by URL
+        //$("a:contains('"+blacklist[i]+"')").closest(".c8").remove(); //search by name
     }
 })();
