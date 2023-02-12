@@ -2,7 +2,7 @@
 // @name         Kenzato de-spammifier
 // @namespace    http://tampermonkey.net/
 // @version      0.2
-// @description  try to take over the world!
+// @description  Remove spam from Kenzato Booru
 // @author       CttCJim
 // @match        https://kenzato.uk/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=kenzato.uk
