@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kenzato.de-spammifier
 // @namespace    http://tampermonkey.net/
-// @version      0.4.0
+// @version      0.4.1
 // @description  Remove spam from Kenzato Booru
 // @author       CttCJim
 // @match        https://kenzato.uk/*
@@ -53,15 +53,15 @@
     //check for updates
     const latest = await getgit('CttCJim','Kenzato-de-spammifier','Kenzato.de-spammifier.user.js');
     const ver = GM_info.script.version;
-   // console.log(ver);
-   // console.log(latest);
     var newver;
     var lines = latest.split(/\r?\n|\r|\n/g);
     for(var i=0;i<lines.length;i++) {
-        if(lines[i].indexOf("@version")!=-1) {
-            var theline = lines[i];
+        var theline = lines[i];
+        console.log(theline.indexOf("@version"));
+        if(theline.indexOf("@version")!=-1) {
             var stpos = theline.indexOf(".")-1;
             newver = theline.substr(stpos);
+            break;
         }
     }
     if(newver!=ver) {
