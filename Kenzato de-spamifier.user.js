@@ -14,6 +14,15 @@
 
     // Your code here...
     'use strict';
+    ///////////////////////////////////////////////////
+    //manually enter users to add to the list below
+    const myblacklist = [
+        'morrowind4ever',
+        'raider123',
+        'hooly_mooly',
+        'wersoreri'
+    ];
+    //////////////////////////////////////////////////
     async function getgit (owner, repo, path) {
         // A function to fetch files from github using the api
 
@@ -31,13 +40,7 @@
 
         return data;
     }
-    //manually enter users to add to the list below
-    const myblacklist = [
-        'morrowind4ever',
-        'raider123',
-        'hooly_mooly',
-        'wersoreri'
-    ];
+
     //your list is now combined with the community list
     const blacklist = myblacklist.concat(JSON.parse(await getgit('CttCJim','Kenzato-de-spammifier','blacklist_url.json')));
     console.log("BLACKLIST:");
