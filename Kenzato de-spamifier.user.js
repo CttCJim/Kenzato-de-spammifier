@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Kenzato de-spammifier
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.3
 // @description  Remove spam from Kenzato Booru
 // @author       CttCJim
 // @match        https://kenzato.uk/*
@@ -31,13 +31,17 @@
 
         return data;
     }
-    /*nst blacklist = [
+    //manually enter users to add to the list below
+    const myblacklist = [
         'morrowind4ever',
         'raider123',
         'hooly_mooly',
         'wersoreri'
-    ];*/
-    const blacklist = JSON.parse(await getgit('CttCJim','Kenzato-de-spammifier','blacklist.json'));
+    ];
+    //your list is now combined with the community list
+    const blacklist = myblacklist.concat(JSON.parse(await getgit('CttCJim','Kenzato-de-spammifier','blacklist_url.json')));
+    console.log("BLACKLIST:");
+    console.log(blacklist);
     for(var i=0;i<blacklist.length;i++) {
         $('a[href$="'+blacklist[i]+'"]').closest(".c8").remove(); //search by URL
         //$("a:contains('"+blacklist[i]+"')").closest(".c8").remove(); //search by name
