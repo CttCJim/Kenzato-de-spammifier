@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Kenzato de-spammifier
+// @name         Kenzato.de-spammifier
 // @namespace    http://tampermonkey.net/
 // @version      0.3
 // @description  Remove spam from Kenzato Booru
